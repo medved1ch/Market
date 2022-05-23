@@ -1,0 +1,231 @@
+﻿@model ProductForSingle
+@{
+    ViewData["Title"] = "ProductSingle";
+}
+
+  <div id="content" class="product_view container_12">
+
+    <div id="product" class="grid_12">
+      <div id="product_images" class="grid_4 alpha ">
+          <div class="clearfix">
+      	<a id="product_image_preview"  class="imageSingle" rel="prettyPhoto[gallery]" href="~/images/dummy/@Model.Image"><img class="imageSingle" width="290px" id="image" src="~/images/dummy/@Model.Image" title="@Model.Title"  /></a>
+      </div>
+      </div>
+      <div id="product_info" class="grid_4">
+        <p class="s_price"><span class="s_price">@Model.Price</span></p>
+        <dl class="clearfix">
+          <dt>Производитель</dt>
+          <dd>@Model.Brand</dd>
+          <dt>Название</dt>
+          <dd>@Model.Title</dd>
+          
+          <dt>Рейтинг</dt>
+          <dd>
+            <p class="s_rating s_rating_2"><span style="width: 100%;" class="s_percent"></span></p>
+          </dd>
+        </dl>
+      	<p class="s_short_desc">Engineered with pro-level features and performance, the 12.3-effective-megapixel D300 combines brand new technologies with advanced features inherited from Nikon's newly announced D3 professional digital SLR camera to offer serious photographers remarkable performance combined with agility.</p>
+        <div id="product_share" class="clearfix">
+          <!-- AddThis Button BEGIN -->
+          <div class="addthis_toolbox addthis_default_style ">
+          <a class="addthis_button_facebook_like" fb:like:layout="button_count"></a>
+          <a class="addthis_button_tweet"></a>
+          <a class="addthis_counter addthis_pill_style"></a>
+          </div>
+          <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4de0eff004042e7a"></script>
+          <!-- AddThis Button END -->
+        </div>
+      </div>
+      <div class="grid_4 omega">
+      	<div class="suffix_2 left s_999">
+        	<p>Including 12% VAT</p>
+          <p class="s_f_11"><strong>Free delivery</strong> for purchases over 200$ for all the United Kingdom</p>
+        </div>
+        <div id="product_options">
+          <h3>Available Options</h3>
+          <label for="option_Memory">Memory</label>
+          <select id="option_Memory">
+            <option value="676">1 GB +29.38<span class="s_currency s_after"> eur</span> </option>
+            <option value="677">2 GB +47.00<span class="s_currency s_after"> eur</span> </option>
+          </select>
+          <span class="clear"></span>
+        </div>
+        <div id="product_buy" class="clearfix">
+          <label for="product_buy_quantity">Qty:</label>
+          <input id="product_buy_quantity" type="text" size="2" />
+          <a id="add_to_cart" class="s_main_color_bgr"><span class="s_text"><span class="s_icon"></span> Add to Cart</span></a>
+        </div>
+      </div>
+      <div class="clear"></div>
+      <div class="s_tabs grid_12 alpha omega">
+        <ul class="s_tabs_nav clearfix">
+          <li><a href="#product_description">Description</a></li>
+          <li><a href="#product_reviews">Reviews (0)</a></li>
+          <li><a href="#product_gallery">Photos (2)</a></li>
+        </ul>
+        <div class="s_tab_box">
+        
+          <div id="product_description">
+            <div class="cpt_product_description ">
+              Engineered with pro-level features and performance, the 12.3-effective-megapixel D300 combines brand new technologies with advanced features inherited from Nikon&#39;s newly announced D3 professional digital SLR camera to offer serious photographers remarkable performance combined with agility.<br />
+              <br />
+              Similar to the D3, the D300 features Nikon&#39;s exclusive EXPEED Image Processing System that is central to driving the speed and processing power needed for many of the camera&#39;s new features. The D300 features a new 51-point autofocus system with Nikon&#39;s 3D Focus Tracking feature and two new LiveView shooting modes that allow users to frame a photograph using the camera&#39;s high-resolution LCD monitor. The D300 shares a similar Scene Recognition System as is found in the D3; it promises to greatly enhance the accuracy of autofocus, autoexposure, and auto white balance by recognizing the subject or scene being photographed and applying this information to the calculations for the three functions.<br />
+              <br />
+              The D300 reacts with lightning speed, powering up in a mere 0.13 seconds and shooting with an imperceptible 45-millisecond shutter release lag time. The D300 is capable of shooting at a rapid six frames per second and can go as fast as eight frames per second when using the optional MB-D10 multi-power battery pack. In continuous bursts, the D300 can shoot up to 100 shots at full 12.3-megapixel resolution. (NORMAL-LARGE image setting, using a SanDisk Extreme IV 1GB CompactFlash card.)<br />
+              <br />
+              The D300 incorporates a range of innovative technologies and features that will significantly improve the accuracy, control, and performance photographers can get from their equipment. Its new Scene Recognition System advances the use of Nikon&#39;s acclaimed 1,005-segment sensor to recognize colors and light patterns that help the camera determine the subject and the type of scene being photographed before a picture is taken. This information is used to improve the accuracy of autofocus, autoexposure, and auto white balance functions in the D300. For example, the camera can track moving subjects better and by identifying them, it can also automatically select focus points faster and with greater accuracy. It can also analyze highlights and more accurately determine exposure, as well as infer light sources to deliver more accurate white balance detection.
+            </div>
+            <!-- cpt_container_end -->
+          </div>
+
+          <div id="product_reviews" class="s_listing">
+            <div class="s_review last">
+              <p class="s_author"><strong>Shoppica</strong><small>(29/03/2011)</small></p>
+              <div class="right">
+                <div class="s_rating_holder">
+                  <p class="s_rating s_rating_5"><span class="s_percent" style="width: 100%;"></span></p>
+                  <span class="s_average">5 out of 5 Stars!</span>
+                </div>
+              </div>
+              <div class="clear"></div>
+              <p>Vestibulum molestie tellus rhoncus nulla cursus quis dictum orci laoreet! metus. Vestibulum molestie tellus rhoncus nulla cursus quis dictum orci laoreet! metus.</p>
+            </div>
+            <div class="pagination"><div class="results">Showing 1 to 1 of 1 (1 Pages)</div></div>
+            <h2 class="s_title_1"><span class="s_main_color">Write</span> Review</h2>
+            <div id="review_title" class="clear"></div>
+            <div class="s_row_3 clearfix">
+              <label><strong>Your Name:</strong></label>
+              <input type="text" />
+            </div>
+            <div class="s_row_3 clearfix">
+              <label><strong>Your Review:</strong></label>
+              <textarea style="width: 98%;" rows="8"></textarea>
+              <p class="s_legend"><span style="color: #FF0000;">Note:</span> HTML is not translated!</p>
+            </div>
+            <div class="s_row_3 clearfix">
+              <label><strong>Rating</strong></label>
+              <span class="clear"></span> <span>Bad</span>&nbsp;
+              <input type="radio" />
+              &nbsp;
+              <input type="radio" />
+              &nbsp;
+              <input type="radio" />
+              &nbsp;
+              <input type="radio" />
+              &nbsp;
+              <input type="radio" />
+              &nbsp; <span>Good</span>
+            </div>
+            <span class="clear border_ddd"></span>
+            <a class="s_button_1 s_main_color_bgr"><span class="s_text">Continue</span></a> <span class="clear"></span> </div>
+          <div id="product_gallery">
+            <ul class="s_thumbs clearfix">
+              <li><a class="s_thumb" href="~/images/dummy/pic_2.jpg" title="Leica M7" rel="prettyPhoto[gallery]"><img src="~/images/dummy/pic_2.jpg" width="120" title="Leica M7" alt="Leica M7" /></a></li>
+              <li><a class="s_thumb" href="~/images/dummy/pic_3.jpg" title="Leica M7" rel="prettyPhoto[gallery]"><img src="~/images/dummy/pic_3.jpg" width="120" title="Leica M7" alt="Leica M7" /></a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div id="related_products" class="grid_12 alpha omega">
+        <h2 class="s_title_1"><span class="s_main_color">Related</span> Products</h2>
+        <div class="clear"></div>
+        <div class="s_grid_view s_listing clearfix">
+          <div class="s_item grid_3">
+          	<a class="s_thumb" href="product.html"><img src="~/images/dummy/pic_4.jpg" title="Panasonic Lumix" alt="Panasonic Lumix" /></a>
+            <h3><a href="product.html">Panasonic Lumix</a></h3>
+            <p class="s_model">Product 4</p>
+            <p class="s_price">94.00<span class="s_currency s_after"> eur</span></p>
+            <a class="s_button_add_to_cart" href="cart.html"><span class="s_icon_16"><span class="s_icon"></span>Add to Cart</span></a>
+          </div>
+          <div class="s_item grid_3">
+          	<a class="s_thumb" href="product.html"><img src="~/images/dummy/pic_5.jpg" title="Panasonic Lumix" alt="Panasonic Lumix" /></a>
+            <h3><a href="product.html">Panasonic Lumix</a></h3>
+            <p class="s_model">Product 4</p>
+            <p class="s_price">94.00<span class="s_currency s_after"> eur</span></p>
+            <a class="s_button_add_to_cart" href="cart.html"><span class="s_icon_16"><span class="s_icon"></span>Add to Cart</span></a>
+          </div>
+          <div class="s_item grid_3">
+          	<a class="s_thumb" href="product.html"><img src="~/images/dummy/pic_6.jpg" title="Panasonic Lumix" alt="Panasonic Lumix" /></a>
+            <h3><a href="product.html">Panasonic Lumix</a></h3>
+            <p class="s_model">Product 4</p>
+            <p class="s_price">94.00<span class="s_currency s_after"> eur</span></p>
+            <a class="s_button_add_to_cart" href="cart.html"><span class="s_icon_16"><span class="s_icon"></span>Add to Cart</span></a>
+          </div>
+          <div class="s_item grid_3">
+          	<a class="s_thumb" href="product.html"><img src="~/images/dummy/pic_7.jpg" title="Panasonic Lumix" alt="Panasonic Lumix" /></a>
+            <h3><a href="product.html">Panasonic Lumix</a></h3>
+            <p class="s_model">Product 4</p>
+            <p class="s_price">94.00<span class="s_currency s_after"> eur</span></p>
+            <a class="s_button_add_to_cart" href="cart.html"><span class="s_icon_16"><span class="s_icon"></span>Add to Cart</span></a>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+      
+      <div id="related_products" class="grid_12 alpha omega">
+        <h2 class="s_title_1"><span class="s_main_color">Related</span> Products (smaller)</h2>
+        <div class="clear"></div>
+        <div class="s_grid_view s_listing clearfix">
+          <div class="s_item grid_2">
+          	<a class="s_thumb" href="product.html"><img src="~/images/dummy/pic_8.jpg" title="Panasonic Lumix" alt="Panasonic Lumix" /></a>
+            <h3><a href="product.html">Panasonic Lumix</a></h3>
+            <p class="s_model">Product 4</p>
+            <p class="s_price">94.00<span class="s_currency s_after"> eur</span></p>
+            <a class="s_button_add_to_cart" href="cart.html"><span class="s_icon_16"><span class="s_icon"></span>Add to Cart</span></a>
+          </div>
+          <div class="s_item grid_2">
+          	<a class="s_thumb" href="product.html"><img src="~/images/dummy/pic_9.jpg" title="Panasonic Lumix" alt="Panasonic Lumix" /></a>
+            <h3><a href="product.html">Panasonic Lumix</a></h3>
+            <p class="s_model">Product 4</p>
+            <p class="s_price">94.00<span class="s_currency s_after"> eur</span></p>
+            <a class="s_button_add_to_cart" href="cart.html"><span class="s_icon_16"><span class="s_icon"></span>Add to Cart</span></a>
+          </div>
+          <div class="s_item grid_2">
+          	<a class="s_thumb" href="product.html"><img src="~/images/dummy/pic_10.jpg" title="Panasonic Lumix" alt="Panasonic Lumix" /></a>
+            <h3><a href="product.html">Panasonic Lumix</a></h3>
+            <p class="s_model">Product 4</p>
+            <p class="s_price">94.00<span class="s_currency s_after"> eur</span></p>
+            <a class="s_button_add_to_cart" href="cart.html"><span class="s_icon_16"><span class="s_icon"></span>Add to Cart</span></a>
+          </div>
+          <div class="s_item grid_2">
+          	<a class="s_thumb" href="product.html"><img src="~/images/dummy/pic_1.jpg" title="Panasonic Lumix" alt="Panasonic Lumix" /></a>
+            <h3><a href="product.html">Panasonic Lumix</a></h3>
+            <p class="s_model">Product 4</p>
+            <p class="s_price">94.00<span class="s_currency s_after"> eur</span></p>
+            <a class="s_button_add_to_cart" href="cart.html"><span class="s_icon_16"><span class="s_icon"></span>Add to Cart</span></a>
+          </div>
+          <div class="s_item grid_2">
+          	<a class="s_thumb" href="product.html"><img src="~/images/dummy/pic_2.jpg" title="Panasonic Lumix" alt="Panasonic Lumix" /></a>
+            <h3><a href="product.html">Panasonic Lumix</a></h3>
+            <p class="s_model">Product 4</p>
+            <p class="s_price">94.00<span class="s_currency s_after"> eur</span></p>
+            <a class="s_button_add_to_cart" href="cart.html"><span class="s_icon_16"><span class="s_icon"></span>Add to Cart</span></a>
+          </div>
+          <div class="s_item grid_2">
+          	<a class="s_thumb" href="product.html"><img src="~/images/dummy/pic_3.jpg" title="Panasonic Lumix" alt="Panasonic Lumix" /></a>
+            <h3><a href="product.html">Panasonic Lumix</a></h3>
+            <p class="s_model">Product 4</p>
+            <p class="s_price">94.00<span class="s_currency s_after"> eur</span></p>
+            <a class="s_button_add_to_cart" href="cart.html"><span class="s_icon_16"><span class="s_icon"></span>Add to Cart</span></a>
+          </div>
+          <div class="clear"></div>
+        </div>
+      </div>
+      
+      <div id="product_tags" class="grid_12 alpha omega">
+        <h2 class="s_title_1"><span class="s_main_color">Product</span> Tags</h2>
+        <div class="clear"></div>
+        <ul class="clearfix">
+          <li><a href="#">Centrino</a></li>
+          <li><a href="#">Intel</a></li>
+          <li><a href="#">VAIO</a></li>
+          <li><a href="#">laptop</a></li>
+          <li><a href="#">notebook</a></li>
+        </ul>
+      </div>
+      
+    </div>
+
+  </div>
+
