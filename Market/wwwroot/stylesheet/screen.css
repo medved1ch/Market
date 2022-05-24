@@ -334,8 +334,11 @@ h2.s_title_1 {
   line-height: 16px;
   vertical-align: bottom;
 }
+s_rating.s_rating_0 {
+	width: 54px;
+}
 .s_rating.s_rating_6 {
-  width: 96px;
+	width: 96px;
 }
 .s_rating.s_rating_5 {
   width: 80px;
@@ -767,7 +770,7 @@ label.s_radio
 }
 .s_tab_box {
   padding: 15px;
-  border: 10px solid #f3f3f3;
+  border: 15px solid #f3f3f3;
 }
 
 /******   pagination   *******************************/
@@ -2110,11 +2113,10 @@ body.s_layout_fixed #wrapper {
 #product_image_preview {
 	display: block;
 	margin-bottom: 30px;
-	width: 250px;
+
 }
 #imageSingle {
 	width: 250px;
-	height: 250px;
 }
 #product_images .s_thumbs {
   margin-right: -20px;

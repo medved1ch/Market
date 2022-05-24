@@ -23,6 +23,7 @@ namespace Market.Controllers
 
         public IActionResult Index()
         {
+
             return View();
         }
         public IActionResult LogIn()
@@ -50,14 +51,46 @@ namespace Market.Controllers
             Product pr = db.Products.SingleOrDefault(c => c.Id == id);
             if (pr == null)
                 return NotFound();
+            List<Feedback> fb = db.Feedbacks.Where(c => c.Product == pr.Id).ToList();
+            List<UserAccounts> userAccounts = new List<UserAccounts>();
             ProductForSingle pfs = new ProductForSingle
             {
-                Brand = db.Brands.SingleOrDefault(c=> c.Id == pr.Brand).Name,
+                Brand = db.Brands.SingleOrDefault(c => c.Id == pr.Brand).Name,
                 Image = pr.Image,
                 Price = pr.Price,
                 Title = pr.Title,
-                Type = db.TypeProducts.SingleOrDefault(c => c.Id == pr.Type).Name
+                Description = pr.Description,
+                
+                Type = db.TypeProducts.SingleOrDefault(c=> c.Id == pr.Type).Name,
+                
             };
+            if (fb.Count != 0)
+            {
+                foreach (var item in fb)
+                {
+                    UserAccounts ua = new UserAccounts
+                    {
+                        Advantages = item.Advantages,
+                        Disadvantages = item.Disadvantages,
+                        Other = item.Other,
+                        Rate = item.Rate,
+                        Id = item.Id,
+                        Date = item.Date,
+                    };
+                    Models.User us = db.Users.SingleOrDefault(c => c.Id == item.Author);
+                    if (us is null)
+                    {
+                        ua.Name = "Гость";
+                    }
+                    else
+                    {
+                        ua.Name = us.Login;
+                    }
+                    userAccounts.Add(ua);
+                }
+            }
+            
+            pfs.UserAccounts = userAccounts;
             List<Feedback> feed = db.Feedbacks.Where(c => c.Product == pr.Id).ToList();
             double amount = 0;
             foreach (var item in feed)
@@ -66,6 +99,7 @@ namespace Market.Controllers
             }
             if (amount > 0)
                 pfs.Rate = Math.Round(amount / feed.Count);
+                
             else
                 pfs.Rate = 0;
             List<ListCharacteristic> llc = db.ListCharacteristics.Where(c => c.Product == pr.Id).ToList();
@@ -80,7 +114,24 @@ namespace Market.Controllers
                 lpc.Add(pc);
             }
             pfs.Character = lpc;
+            #region
+            //List<UserAccounts> usa = new List<UserAccounts>();
+            //foreach (var item in feed)
+            //{
+            //    User uaa = db.Users.SingleOrDefault(c => c.Id == item.Author);
 
+            //    UserAccounts aty = new UserAccounts { Id = item.Id };
+            //    if(uaa == null) 
+            //    { 
+            //        aty.Name = "Гость"; 
+            //    }
+            //    else
+            //    {
+            //        aty.Name = uaa.Login;
+            //    }
+
+            //}
+            #endregion 
             return View(pfs);
         }
         public IActionResult ListProduct()
@@ -88,6 +139,7 @@ namespace Market.Controllers
            // var primes = Tuple.Create(lvm, 3, 5, 7, 11, 13, 17, 19);
             List<TypeProduct> lProd = db.TypeProducts.ToList();
             List<Product> Prod = db.Products.ToList();
+            List<Brand> brands = db.Brands.ToList();
             List<ViewModel> lvm = new List<ViewModel>();
             //lProd.OrderByDescending(c => c.Id);
             //if (lProd.Count > 5)
@@ -116,7 +168,7 @@ namespace Market.Controllers
             //    lvm.Add(vm);
             //}
             //return View(lvm);
-            return View(Tuple.Create(Prod, lProd));
+            return View(Tuple.Create(Prod, lProd, brands));
 
         }
 

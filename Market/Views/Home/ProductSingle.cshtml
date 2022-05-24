@@ -18,13 +18,21 @@
           <dd>@Model.Brand</dd>
           <dt>Название</dt>
           <dd>@Model.Title</dd>
-          
           <dt>Рейтинг</dt>
           <dd>
-            <p class="s_rating s_rating_2"><span style="width: 100%;" class="s_percent"></span></p>
+            <p ><span  style="width: 100%;" >@Model.Rate / 5</span></p>
           </dd>
+
         </dl>
-      	<p class="s_short_desc">Engineered with pro-level features and performance, the 12.3-effective-megapixel D300 combines brand new technologies with advanced features inherited from Nikon's newly announced D3 professional digital SLR camera to offer serious photographers remarkable performance combined with agility.</p>
+      	<p class="s_short_desc">@if (Model.Description.Length <= 150)
+                        {
+                            <p class="s_description">@Model.Description</p>
+                        }
+                        else
+                        {
+                            <p class="s_description">@(Model.Description.Substring(0, 150))...</p>
+                        }
+                        </p>
         <div id="product_share" class="clearfix">
           <!-- AddThis Button BEGIN -->
           <div class="addthis_toolbox addthis_default_style ">
@@ -38,15 +46,12 @@
       </div>
       <div class="grid_4 omega">
       	<div class="suffix_2 left s_999">
-        	<p>Including 12% VAT</p>
-          <p class="s_f_11"><strong>Free delivery</strong> for purchases over 200$ for all the United Kingdom</p>
+          <p class="s_f_11"><strong>Бесплатная доставка</strong> при заказе от 10.000 рублей.</p>
         </div>
         <div id="product_options">
           <h3>Available Options</h3>
           <label for="option_Memory">Memory</label>
           <select id="option_Memory">
-            <option value="676">1 GB +29.38<span class="s_currency s_after"> eur</span> </option>
-            <option value="677">2 GB +47.00<span class="s_currency s_after"> eur</span> </option>
           </select>
           <span class="clear"></span>
         </div>
@@ -59,37 +64,46 @@
       <div class="clear"></div>
       <div class="s_tabs grid_12 alpha omega">
         <ul class="s_tabs_nav clearfix">
-          <li><a href="#product_description">Description</a></li>
-          <li><a href="#product_reviews">Reviews (0)</a></li>
-          <li><a href="#product_gallery">Photos (2)</a></li>
+          <li><a href="#product_description">Описание</a></li>
+          <li><a href="#product_reviews">Оценки</a></li>
+          <li><a href="#product_gallery">Картинки </a></li>
         </ul>
         <div class="s_tab_box">
         
           <div id="product_description">
             <div class="cpt_product_description ">
-              Engineered with pro-level features and performance, the 12.3-effective-megapixel D300 combines brand new technologies with advanced features inherited from Nikon&#39;s newly announced D3 professional digital SLR camera to offer serious photographers remarkable performance combined with agility.<br />
+              <h1>Описание</h1><br />
               <br />
-              Similar to the D3, the D300 features Nikon&#39;s exclusive EXPEED Image Processing System that is central to driving the speed and processing power needed for many of the camera&#39;s new features. The D300 features a new 51-point autofocus system with Nikon&#39;s 3D Focus Tracking feature and two new LiveView shooting modes that allow users to frame a photograph using the camera&#39;s high-resolution LCD monitor. The D300 shares a similar Scene Recognition System as is found in the D3; it promises to greatly enhance the accuracy of autofocus, autoexposure, and auto white balance by recognizing the subject or scene being photographed and applying this information to the calculations for the three functions.<br />
+              @Model.Description<br />
               <br />
-              The D300 reacts with lightning speed, powering up in a mere 0.13 seconds and shooting with an imperceptible 45-millisecond shutter release lag time. The D300 is capable of shooting at a rapid six frames per second and can go as fast as eight frames per second when using the optional MB-D10 multi-power battery pack. In continuous bursts, the D300 can shoot up to 100 shots at full 12.3-megapixel resolution. (NORMAL-LARGE image setting, using a SanDisk Extreme IV 1GB CompactFlash card.)<br />
+              <h1>Оценки </h1>
               <br />
-              The D300 incorporates a range of innovative technologies and features that will significantly improve the accuracy, control, and performance photographers can get from their equipment. Its new Scene Recognition System advances the use of Nikon&#39;s acclaimed 1,005-segment sensor to recognize colors and light patterns that help the camera determine the subject and the type of scene being photographed before a picture is taken. This information is used to improve the accuracy of autofocus, autoexposure, and auto white balance functions in the D300. For example, the camera can track moving subjects better and by identifying them, it can also automatically select focus points faster and with greater accuracy. It can also analyze highlights and more accurately determine exposure, as well as infer light sources to deliver more accurate white balance detection.
+              
             </div>
             <!-- cpt_container_end -->
           </div>
-
           <div id="product_reviews" class="s_listing">
-            <div class="s_review last">
-              <p class="s_author"><strong>Shoppica</strong><small>(29/03/2011)</small></p>
-              <div class="right">
-                <div class="s_rating_holder">
-                  <p class="s_rating s_rating_5"><span class="s_percent" style="width: 100%;"></span></p>
-                  <span class="s_average">5 out of 5 Stars!</span>
+          
+              <div class="product_reviews">
+                   @foreach (var item in Model.UserAccounts)
+                    {
+                <p class="s_author"><strong>Пользователь: @item.Name</strong>
+                  <small>@item.Date.ToShortDateString()</small></p>
+                     <div>
+                        <div class="s_rating_holder">
+                        <p><strong>Преимущества: </strong> @item.Advantages</p>
+                        <p><strong>Недостатки: </strong> @item.Disadvantages</p>
+                        <p><strong>Прочие: </strong> @item.Other</p>
+                        <p class="s_rating s_rating_5"><span class="s_percent" style="width: @(Model.Rate/5*100)%;"></span></p>
+                        <span class="s_average">Оценка: @item.Rate из  5 Звезд!</span>
                 </div>
+                
               </div>
-              <div class="clear"></div>
-              <p>Vestibulum molestie tellus rhoncus nulla cursus quis dictum orci laoreet! metus. Vestibulum molestie tellus rhoncus nulla cursus quis dictum orci laoreet! metus.</p>
+              }
             </div>
+            
+            
+              
             <div class="pagination"><div class="results">Showing 1 to 1 of 1 (1 Pages)</div></div>
             <h2 class="s_title_1"><span class="s_main_color">Write</span> Review</h2>
             <div id="review_title" class="clear"></div>

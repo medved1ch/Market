@@ -1,4 +1,4 @@
-﻿@model Tuple<List<Product>, List<TypeProduct>>
+﻿@model Tuple<List<Product>, List<TypeProduct>, List<Brand>>
 @{
     ViewData["Title"] = "ListProduct";
 }
@@ -113,54 +113,26 @@
             	<a href="~/listing_1.html"><b>Electronics</b></a>
             	<ul>
                             @foreach (var item in Model.Item2)
-                            {
-                                
-                            
-                //<li><a href="~/listing_1.html">Digital Cameras</a></li>
+                {
                 <li><a href="~/listing_1.html">@item.Name</a></li>
-               // <li><a href="~/listing_1.html">Home Cinema</a></li>
-                //<li><a href="~/listing_1.html">Cell Phones</a></li>
-                //<li><a href="~/listing_1.html">MP3 Players</a></li>
-               // <li><a href="~/listing_1.html">Car-Audio</a></li>
+
                 }
               </ul>
             </li>
-            <li><a href="~/listing_1.html">Computers</a></li>
-            <li><a href="~/listing_1.html">Clothing</a></li>
-            <li><a href="~/listing_1.html">Shoes</a></li>
-            <li><a href="~/listing_1.html">Gifts</a></li>
-            <li><a href="~/listing_1.html">At home</a></li>
-            <li><a href="~/listing_1.html">Health</a></li>
-            <li><a href="~/listing_1.html">Jewellery</a></li>
-            <li><a href="~/listing_1.html">Books</a></li>
           </ul>
       	</div>
 			</div>
       
     	<div id="brands_module" class="s_box">
         <h2>Brands</h2>
+        
         <select onchange="location = this.value">
           <option> --- Please Select --- </option>
-          <option>Adidas</option>
-          <option>Apple</option>
-          <option>Armani</option>
-          <option>Balenciaga</option>
-          <option>Bvlgari</option>
-          <option>Canon</option>
-          <option>Christian Dior</option>
-          <option>Elisabeth Arden</option>
-          <option>Hewlett-Packard</option>
-          <option>HTC</option>
-          <option>Hugo Boss</option>
-          <option>Nike</option>
-          <option>Nikon</option>
-          <option>Palm</option>
-          <option>Panasonic</option>
-          <option>Reebok</option>
-          <option>Samsung</option>
-          <option>Sony</option>
-          <option>Swarovski</option>
+          @foreach(var item in Model.Item3){
+          <option>@item.Name</option>
+          }
         </select>
+
       </div>
       
       <div id="bestseller_side" class="s_box clearfix">
@@ -242,11 +214,11 @@
       <div id="information_module" class="s_box">
         <h2>Information</h2>
         <ul class="s_list_1">
-          <li><a href="~/static.html">About Shoppica</a></li>
-          <li><a href="~/static.html">Privacy Policy</a></li>
-          <li><a href="~/static.html">Terms &amp; Conditions</a></li>
-          <li><a href="~/contacts.html">Contact Us</a></li>
-          <li><a href="~/sitemap.html">Site Map</a></li>
+          <li><a asp-action="About">About Shoppica</a></li>
+          <li><a asp-action="About">Privacy Policy</a></li>
+          <li><a asp-action="About">Terms &amp; Conditions</a></li>
+          <li><a asp-action="Contact">Contact Us</a></li>
+          <li><a asp-action="SiteMap">Site Map</a></li>
         </ul>
       </div>
   

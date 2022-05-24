@@ -12,6 +12,7 @@ namespace Market.Models
         public string Image { get; set;}
         public double Price { get; set; }
         public double Rate { get; set;}
+        public string Description { get; set; }
 
     }
     public class ProductForSingle
@@ -22,7 +23,15 @@ namespace Market.Models
         public string Image { get; set; }
         public double Price { get; set; }
         public List<ProductCharacteristic> Character { get; set; }
-        public double Rate { get; set; }
+        public double Rate { get; set;}
+        public string Description { get; set; }
+
+        public List<UserAccounts> UserAccounts { get; set; }
+       
+        
+       
+
+        
 
     }
 
@@ -31,5 +40,21 @@ namespace Market.Models
         public string Name { get; set; }
         public string Description { get; set; }
     }
+
+    public class UserAccounts
+    {
+        public int Id { get; set; }
+
+        public string Name { get; set; }
+        public string Advantages { get; set; }
+        public string Disadvantages { get; set; }
+        public string Other { get; set; }
+        public DateTime Date { get; set; }
+        public double Rate { get; set; }
+        
+
+    }
+
+
 }
 
