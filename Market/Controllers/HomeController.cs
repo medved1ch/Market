@@ -62,7 +62,11 @@ namespace Market.Controllers
                 Description = pr.Description,
                 
                 Type = db.TypeProducts.SingleOrDefault(c=> c.Id == pr.Type).Name,
-                
+
+
+
+
+
             };
             if (fb.Count != 0)
             {
@@ -133,6 +137,12 @@ namespace Market.Controllers
             //}
             #endregion 
             return View(pfs);
+        }
+        public IActionResult Register(string LastName, string FirstName, string MiddleName, string Login, string Password)
+        {
+
+            return View();
+            return RedirectToAction("Index");
         }
         public IActionResult ListProduct()
         {

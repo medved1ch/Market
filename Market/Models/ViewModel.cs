@@ -25,20 +25,23 @@ namespace Market.Models
         public List<ProductCharacteristic> Character { get; set; }
         public double Rate { get; set;}
         public string Description { get; set; }
-
         public List<UserAccounts> UserAccounts { get; set; }
-       
         
-       
-
-        
-
     }
 
     public class ProductCharacteristic
     {
         public string Name { get; set; }
         public string Description { get; set; }
+
+    }
+
+    public class Characteristics
+    {
+        
+        public string Product { get; set; }
+
+        public string Text { get; set; }
     }
 
     public class UserAccounts
@@ -54,7 +57,5 @@ namespace Market.Models
         
 
     }
-
-
 }
 

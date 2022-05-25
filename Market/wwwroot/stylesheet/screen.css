@@ -392,6 +392,7 @@ s_rating.s_rating_0 {
 /******   table styles   *****************************/
 .s_table {
   background: #eee;
+  
 }
 .s_table th,
 .s_table td
@@ -869,9 +870,12 @@ label.s_radio
   margin: 0 -10px;
 }
 
-
+.grid_Reg {
+	position: center;
+	margin: 0 -10px;
+}
 .s_subcategories {
-  margin-bottom: 40px !important;
+	margin-bottom: 40px !important;
 }
 .s_subcategory {
   float: left;

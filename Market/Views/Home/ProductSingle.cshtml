@@ -12,7 +12,7 @@
       </div>
       </div>
       <div id="product_info" class="grid_4">
-        <p class="s_price"><span class="s_price">@Model.Price</span></p>
+        <p class="s_price"><span class="s_price">@Model.Price ₽</span></p>
         <dl class="clearfix">
           <dt>Производитель</dt>
           <dd>@Model.Brand</dd>
@@ -40,7 +40,7 @@
           <a class="addthis_button_tweet"></a>
           <a class="addthis_counter addthis_pill_style"></a>
           </div>
-          <script type="text/javascript" src="http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4de0eff004042e7a"></script>
+          <script type="text/javascript" src="~/http://s7.addthis.com/js/250/addthis_widget.js#pubid=xa-4de0eff004042e7a"></script>
           <!-- AddThis Button END -->
         </div>
       </div>
@@ -54,6 +54,7 @@
           <select id="option_Memory">
           </select>
           <span class="clear"></span>
+
         </div>
         <div id="product_buy" class="clearfix">
           <label for="product_buy_quantity">Qty:</label>
@@ -65,26 +66,44 @@
       <div class="s_tabs grid_12 alpha omega">
         <ul class="s_tabs_nav clearfix">
           <li><a href="#product_description">Описание</a></li>
-          <li><a href="#product_reviews">Оценки</a></li>
-          <li><a href="#product_gallery">Картинки </a></li>
+          <li><a href="#product_char">Харктеристики </a></li>
+          <li><a href="#product_reviews">Отзывы</a></li>
+          
         </ul>
         <div class="s_tab_box">
         
           <div id="product_description">
             <div class="cpt_product_description ">
-              <h1>Описание</h1><br />
+              <h1>Описание</h1>
               <br />
               @Model.Description<br />
-              <br />
-              <h1>Оценки </h1>
-              <br />
-              
-            </div>
-            <!-- cpt_container_end -->
-          </div>
-          <div id="product_reviews" class="s_listing">
+              <br/>
+              </div>
+               </div>
+              <div id="product_char">
+              <h1>Характеристики </h1>
+              <br/>
+              <table cellspacing="8" >
+
+              @foreach (var item in Model.Character)
+                        {
+                          
+                       <tr>
+                        <th align="left">@item.Name</th><th align="center"  >@item.Description</th>
+                       </tr>
+                        }
+               </table>
+              </div>
+              <br/>
+              <div id="product_reviews" class="s_listing">
           
               <div class="product_reviews">
+              <h1>Отзывы </h1>
+              <br />
+           
+            <!-- cpt_container_end -->
+          
+          
                    @foreach (var item in Model.UserAccounts)
                     {
                 <p class="s_author"><strong>Пользователь: @item.Name</strong>
@@ -93,31 +112,29 @@
                         <div class="s_rating_holder">
                         <p><strong>Преимущества: </strong> @item.Advantages</p>
                         <p><strong>Недостатки: </strong> @item.Disadvantages</p>
-                        <p><strong>Прочие: </strong> @item.Other</p>
+                        <p><strong>Комментарий: </strong> @item.Other</p>
                         <p class="s_rating s_rating_5"><span class="s_percent" style="width: @(Model.Rate/5*100)%;"></span></p>
                         <span class="s_average">Оценка: @item.Rate из  5 Звезд!</span>
                 </div>
-                
               </div>
               }
             </div>
-            
-            
-              
             <div class="pagination"><div class="results">Showing 1 to 1 of 1 (1 Pages)</div></div>
-            <h2 class="s_title_1"><span class="s_main_color">Write</span> Review</h2>
+            <h2 class="s_title_1"><span class="s_main_color">Оставьте</span> отзыв</h2>
             <div id="review_title" class="clear"></div>
-            <div class="s_row_3 clearfix">
-              <label><strong>Your Name:</strong></label>
-              <input type="text" />
+            <div class="s_row_2 clearfix">
+              <label><strong>Достоинства</strong></label>
+              <textarea name="Advantages" style="width: 60%; resize: none;"  rows="8" placeholder="Что вам понравилось"></textarea>
             </div>
-            <div class="s_row_3 clearfix">
-              <label><strong>Your Review:</strong></label>
-              <textarea style="width: 98%;" rows="8"></textarea>
+            <div class="s_row_2 clearfix">
+              <label><strong>Недостатки</strong></label>
+              <textarea name="Disadvantages" style="width: 60%; resize: none;"  rows="8" placeholder="Что вам не понравилось"></textarea>
+            </div>
+            <div class="s_row_2 clearfix">
+              <label><strong>Комментарий</strong></label>
+              <textarea name="Other" style="width: 60%; resize: none;"  rows="8" placeholder="Другие впечатления"></textarea>
               <p class="s_legend"><span style="color: #FF0000;">Note:</span> HTML is not translated!</p>
-            </div>
-            <div class="s_row_3 clearfix">
-              <label><strong>Rating</strong></label>
+              <label><strong>Ваша оценка</strong></label>
               <span class="clear"></span> <span>Bad</span>&nbsp;
               <input type="radio" />
               &nbsp;
@@ -132,112 +149,10 @@
             </div>
             <span class="clear border_ddd"></span>
             <a class="s_button_1 s_main_color_bgr"><span class="s_text">Continue</span></a> <span class="clear"></span> </div>
-          <div id="product_gallery">
-            <ul class="s_thumbs clearfix">
-              <li><a class="s_thumb" href="~/images/dummy/pic_2.jpg" title="Leica M7" rel="prettyPhoto[gallery]"><img src="~/images/dummy/pic_2.jpg" width="120" title="Leica M7" alt="Leica M7" /></a></li>
-              <li><a class="s_thumb" href="~/images/dummy/pic_3.jpg" title="Leica M7" rel="prettyPhoto[gallery]"><img src="~/images/dummy/pic_3.jpg" width="120" title="Leica M7" alt="Leica M7" /></a></li>
-            </ul>
-          </div>
         </div>
       </div>
       
-      <div id="related_products" class="grid_12 alpha omega">
-        <h2 class="s_title_1"><span class="s_main_color">Related</span> Products</h2>
-        <div class="clear"></div>
-        <div class="s_grid_view s_listing clearfix">
-          <div class="s_item grid_3">
-          	<a class="s_thumb" href="product.html"><img src="~/images/dummy/pic_4.jpg" title="Panasonic Lumix" alt="Panasonic Lumix" /></a>
-            <h3><a href="product.html">Panasonic Lumix</a></h3>
-            <p class="s_model">Product 4</p>
-            <p class="s_price">94.00<span class="s_currency s_after"> eur</span></p>
-            <a class="s_button_add_to_cart" href="cart.html"><span class="s_icon_16"><span class="s_icon"></span>Add to Cart</span></a>
-          </div>
-          <div class="s_item grid_3">
-          	<a class="s_thumb" href="product.html"><img src="~/images/dummy/pic_5.jpg" title="Panasonic Lumix" alt="Panasonic Lumix" /></a>
-            <h3><a href="product.html">Panasonic Lumix</a></h3>
-            <p class="s_model">Product 4</p>
-            <p class="s_price">94.00<span class="s_currency s_after"> eur</span></p>
-            <a class="s_button_add_to_cart" href="cart.html"><span class="s_icon_16"><span class="s_icon"></span>Add to Cart</span></a>
-          </div>
-          <div class="s_item grid_3">
-          	<a class="s_thumb" href="product.html"><img src="~/images/dummy/pic_6.jpg" title="Panasonic Lumix" alt="Panasonic Lumix" /></a>
-            <h3><a href="product.html">Panasonic Lumix</a></h3>
-            <p class="s_model">Product 4</p>
-            <p class="s_price">94.00<span class="s_currency s_after"> eur</span></p>
-            <a class="s_button_add_to_cart" href="cart.html"><span class="s_icon_16"><span class="s_icon"></span>Add to Cart</span></a>
-          </div>
-          <div class="s_item grid_3">
-          	<a class="s_thumb" href="product.html"><img src="~/images/dummy/pic_7.jpg" title="Panasonic Lumix" alt="Panasonic Lumix" /></a>
-            <h3><a href="product.html">Panasonic Lumix</a></h3>
-            <p class="s_model">Product 4</p>
-            <p class="s_price">94.00<span class="s_currency s_after"> eur</span></p>
-            <a class="s_button_add_to_cart" href="cart.html"><span class="s_icon_16"><span class="s_icon"></span>Add to Cart</span></a>
-          </div>
-          <div class="clear"></div>
-        </div>
-      </div>
-      
-      <div id="related_products" class="grid_12 alpha omega">
-        <h2 class="s_title_1"><span class="s_main_color">Related</span> Products (smaller)</h2>
-        <div class="clear"></div>
-        <div class="s_grid_view s_listing clearfix">
-          <div class="s_item grid_2">
-          	<a class="s_thumb" href="product.html"><img src="~/images/dummy/pic_8.jpg" title="Panasonic Lumix" alt="Panasonic Lumix" /></a>
-            <h3><a href="product.html">Panasonic Lumix</a></h3>
-            <p class="s_model">Product 4</p>
-            <p class="s_price">94.00<span class="s_currency s_after"> eur</span></p>
-            <a class="s_button_add_to_cart" href="cart.html"><span class="s_icon_16"><span class="s_icon"></span>Add to Cart</span></a>
-          </div>
-          <div class="s_item grid_2">
-          	<a class="s_thumb" href="product.html"><img src="~/images/dummy/pic_9.jpg" title="Panasonic Lumix" alt="Panasonic Lumix" /></a>
-            <h3><a href="product.html">Panasonic Lumix</a></h3>
-            <p class="s_model">Product 4</p>
-            <p class="s_price">94.00<span class="s_currency s_after"> eur</span></p>
-            <a class="s_button_add_to_cart" href="cart.html"><span class="s_icon_16"><span class="s_icon"></span>Add to Cart</span></a>
-          </div>
-          <div class="s_item grid_2">
-          	<a class="s_thumb" href="product.html"><img src="~/images/dummy/pic_10.jpg" title="Panasonic Lumix" alt="Panasonic Lumix" /></a>
-            <h3><a href="product.html">Panasonic Lumix</a></h3>
-            <p class="s_model">Product 4</p>
-            <p class="s_price">94.00<span class="s_currency s_after"> eur</span></p>
-            <a class="s_button_add_to_cart" href="cart.html"><span class="s_icon_16"><span class="s_icon"></span>Add to Cart</span></a>
-          </div>
-          <div class="s_item grid_2">
-          	<a class="s_thumb" href="product.html"><img src="~/images/dummy/pic_1.jpg" title="Panasonic Lumix" alt="Panasonic Lumix" /></a>
-            <h3><a href="product.html">Panasonic Lumix</a></h3>
-            <p class="s_model">Product 4</p>
-            <p class="s_price">94.00<span class="s_currency s_after"> eur</span></p>
-            <a class="s_button_add_to_cart" href="cart.html"><span class="s_icon_16"><span class="s_icon"></span>Add to Cart</span></a>
-          </div>
-          <div class="s_item grid_2">
-          	<a class="s_thumb" href="product.html"><img src="~/images/dummy/pic_2.jpg" title="Panasonic Lumix" alt="Panasonic Lumix" /></a>
-            <h3><a href="product.html">Panasonic Lumix</a></h3>
-            <p class="s_model">Product 4</p>
-            <p class="s_price">94.00<span class="s_currency s_after"> eur</span></p>
-            <a class="s_button_add_to_cart" href="cart.html"><span class="s_icon_16"><span class="s_icon"></span>Add to Cart</span></a>
-          </div>
-          <div class="s_item grid_2">
-          	<a class="s_thumb" href="product.html"><img src="~/images/dummy/pic_3.jpg" title="Panasonic Lumix" alt="Panasonic Lumix" /></a>
-            <h3><a href="product.html">Panasonic Lumix</a></h3>
-            <p class="s_model">Product 4</p>
-            <p class="s_price">94.00<span class="s_currency s_after"> eur</span></p>
-            <a class="s_button_add_to_cart" href="cart.html"><span class="s_icon_16"><span class="s_icon"></span>Add to Cart</span></a>
-          </div>
-          <div class="clear"></div>
-        </div>
-      </div>
-      
-      <div id="product_tags" class="grid_12 alpha omega">
-        <h2 class="s_title_1"><span class="s_main_color">Product</span> Tags</h2>
-        <div class="clear"></div>
-        <ul class="clearfix">
-          <li><a href="#">Centrino</a></li>
-          <li><a href="#">Intel</a></li>
-          <li><a href="#">VAIO</a></li>
-          <li><a href="#">laptop</a></li>
-          <li><a href="#">notebook</a></li>
-        </ul>
-      </div>
+     
       
     </div>
 

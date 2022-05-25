@@ -67,11 +67,11 @@
           @foreach (var item in Model.Item1)
             {
                  <div class="s_item clearfix">
-                  <div class="grid_3 alpha"> <a class="s_thumb" href="~/product.html"><img src="~/images/dummy/@(item.Image)" title="@item.Title" alt="Leica M7" /></a> </div>
+                  <div class="grid_3 alpha"> <a class="s_thumb" asp-action="ProductSingle" asp-route-id="@item.Id"><img src="~/images/dummy/@(item.Image)" title="@item.Title" alt="Leica M7" /></a> </div>
                   <div class="grid_6 omega">
                     <h3><a asp-action="ProductSingle" asp-route-id="@item.Id">@item.Title</a></h3>
                     <p class="s_model"></p>
-                    <p class="s_price">@item.Price</p>
+                    <p class="s_price">@item.Price ₽</p>
                     @if (item.Description.Length <= 250)
                         {
                             <p class="s_description">@item.Description</p>
