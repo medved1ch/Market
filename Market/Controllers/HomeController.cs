@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using System.Data;
 
 namespace Market.Controllers
 {
@@ -118,32 +119,39 @@ namespace Market.Controllers
                 lpc.Add(pc);
             }
             pfs.Character = lpc;
-            #region
-            //List<UserAccounts> usa = new List<UserAccounts>();
-            //foreach (var item in feed)
-            //{
-            //    User uaa = db.Users.SingleOrDefault(c => c.Id == item.Author);
-
-            //    UserAccounts aty = new UserAccounts { Id = item.Id };
-            //    if(uaa == null) 
-            //    { 
-            //        aty.Name = "Гость"; 
-            //    }
-            //    else
-            //    {
-            //        aty.Name = uaa.Login;
-            //    }
-
-            //}
-            #endregion 
             return View(pfs);
         }
-        public IActionResult Register(string LastName, string FirstName, string MiddleName, string Login, string Password)
+        public IActionResult Register()
         {
-
             return View();
+        }
+        public IActionResult RegisterAcc(string LastName, string FirstName, string MiddleName, string Login, string Password)
+        {
+            User usr = new User
+
+            {
+                Login = Login,
+                LastName = LastName,
+                FirstName = FirstName,
+                MiddleName = MiddleName,
+                Password = Password,
+                Type = 2,
+            };
+            try
+            {
+                db.Users.Add(usr);
+                db.SaveChanges();
+                
+            }
+            catch (Exception e)
+            {
+                return BadRequest(e.StackTrace);
+                
+            }
             return RedirectToAction("Index");
         }
+
+
         public IActionResult ListProduct()
         {
            // var primes = Tuple.Create(lvm, 3, 5, 7, 11, 13, 17, 19);

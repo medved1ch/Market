@@ -8,6 +8,7 @@ namespace Market.Models
 {
     public partial class de08Context : DbContext
     {
+        
         public de08Context()
         {
         }
