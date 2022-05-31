@@ -634,6 +634,33 @@ div.clear {
   clear: both;
 }
 
+
+
+/*stars rating*/
+.ratingStar {
+    font-size: 0pt;
+    width: 13px;
+    height: 12px;
+    cursor: pointer;
+    display: block;
+    background-repeat: no-repeat;
+}
+
+.filledStar {
+    background-image: url(image/Filled_Star.png);
+}
+
+.emptyStar {
+    background-image: url(Image/Empty_Star.png);
+}
+
+.savedStar {
+    background-image: url(Image/Saved_Star.png);
+}
+
+.auto-style1 {
+    height: 50px;
+}  
 /*
   The following zoom:1 rule is specifically for IE6 + IE7.
   Move to separate stylesheet if invalid CSS is a problem.

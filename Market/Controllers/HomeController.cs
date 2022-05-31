@@ -47,8 +47,26 @@ namespace Market.Controllers
         {
             return View();
         }
+        public IActionResult Feed(string Disadvantages, string Advantages, string Other,int id, int raten)
+        {
+            //Product pr = db.Products.SingleOrDefault(c => c.Id == id);
+            //Feedback fb = new Feedback
+            //{
+            //    Advantages = Advantages,
+            //    Disadvantages = Disadvantages,
+            //    Other = Other,
+            //    Product = pr.Id,
+            //    Date = DateTime.Now,
+            //    Rate = raten,
+            //};
+            //db.Feedbacks.Add(fb);
+            //db.SaveChanges();
+
+            return View();
+        }
         public IActionResult ProductSingle(int id)
         {
+
             Product pr = db.Products.SingleOrDefault(c => c.Id == id);
             if (pr == null)
                 return NotFound();
@@ -154,39 +172,43 @@ namespace Market.Controllers
 
         public IActionResult ListProduct()
         {
-           // var primes = Tuple.Create(lvm, 3, 5, 7, 11, 13, 17, 19);
+            // var primes = Tuple.Create(lvm, 3, 5, 7, 11, 13, 17, 19);
             List<TypeProduct> lProd = db.TypeProducts.ToList();
             List<Product> Prod = db.Products.ToList();
-            List<Brand> brands = db.Brands.ToList();
             List<ViewModel> lvm = new List<ViewModel>();
-            //lProd.OrderByDescending(c => c.Id);
-            //if (lProd.Count > 5)
-            //{
-            //    lProd = lProd.GetRange(0, 5);
-            //}
-            //foreach (var item in lProd)
-            //{
-            //    List<Feedback> lf = db.Feedbacks.Where(c => c.Id == item.Id).ToList();
-            //    double amount = 0;
-            //    foreach (var item2 in lf)
-            //    {
-            //        amount += item2.Rate;
-            //    }
+            lProd.OrderByDescending(c => c.Id);
+            if (lProd.Count > 5)
+            {
+                lProd = lProd.GetRange(0, 5);
+            }
+            foreach (var item in Prod)
+            {
+                List<Feedback> lf = db.Feedbacks.Where(c => c.Id == item.Id).ToList();
+                double amount = 0;
+                foreach (var item2 in lf)
+                {
+                    amount += item2.Rate;
+                }
 
-            //    ViewModel vm = new ViewModel
-            //    {
-            //        Title = item.Title,
-            //        Type = db.TypeProducts.SingleOrDefault(c => c.Id == item.Type).Name,
-            //        Price = item.Price
-            //    };
-            //    if (lf.Count == 0)
-            //        vm.Rate = 0;
-            //    else
-            //        vm.Rate = Math.Round(amount / lf.Count);
-            //    lvm.Add(vm);
-            //}
-            //return View(lvm);
-            return View(Tuple.Create(Prod, lProd, brands));
+                ViewModel vm = new ViewModel
+                {
+                    Id = item.Id,
+                    Title = item.Title,
+                    Type = db.TypeProducts.SingleOrDefault(c => c.Id == item.Type).Name,
+                    Price = item.Price,
+                    Brand = db.Brands.SingleOrDefault(c =>c.Id == item.Brand).Name,
+                    Description = item.Description,
+                    Image = item.Image,
+                    Rate = amount,
+                };
+                if (lf.Count == 0)
+                    vm.Rate = 0;
+                else
+                    vm.Rate = Math.Round(amount / lf.Count);
+                lvm.Add(vm);
+            }
+            return View(lvm);
+            //return View(Tuple.Create(Prod, lProd, brands));
 
         }
 

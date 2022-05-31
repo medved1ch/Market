@@ -1,4 +1,5 @@
-﻿@model Tuple<List<Product>, List<TypeProduct>, List<Brand>>
+﻿@*@model Tuple<List<Product>, List<TypeProduct>, List<Brand>>*@
+@model List<ViewModel>
 @{
     ViewData["Title"] = "ListProduct";
 }
@@ -53,10 +54,10 @@
       <div class="clear"></div>
       
       <div class="s_listing s_list_view clearfix">
-          @foreach (var item in Model.Item1)
+          @foreach (var item in Model)
             {
                  <div class="s_item clearfix">
-                  <div class="grid_3 alpha"> <a class="s_thumb" asp-action="ProductSingle" asp-route-id="@item.Id"><img src="~/images/dummy/@(item.Image)" title="@item.Title" alt="Leica M7" /></a> </div>
+                  <div class="grid_3 alpha"> <a class="s_thumb" asp-action="ProductSingle" asp-route-id="@item.Id"><img src="~/images/dummy/@(item.Image)" title="@item.Title" /></a> </div>
                   <div class="grid_6 omega">
                     <h3><a asp-action="ProductSingle" asp-route-id="@item.Id">@item.Title</a></h3>
                     <p class="s_model"></p>
@@ -101,9 +102,9 @@
           	<li>
             	<a href="~/listing_1.html"><b>Electronics</b></a>
             	<ul>
-                            @foreach (var item in Model.Item2)
+                            @foreach (var item in Model)
                 {
-                <li><a href="~/listing_1.html">@item.Name</a></li>
+                <li><a href="~/listing_1.html">@item.Type</a></li>
 
                 }
               </ul>
@@ -115,10 +116,10 @@
     	<div id="brands_module" class="s_box">
         <h2>Brands</h2>
         
-        <select onchange="location = this.value">
+        <select>
           <option> --- Please Select --- </option>
-          @foreach(var item in Model.Item3){
-          <option>@item.Name</option>
+          @foreach(var item in Model){
+          <option>@item.Brand</option>
           }
         </select>
 

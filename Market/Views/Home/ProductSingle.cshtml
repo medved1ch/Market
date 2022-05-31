@@ -1,7 +1,9 @@
 ﻿@model ProductForSingle
+
 @{
     ViewData["Title"] = "ProductSingle";
 }
+
 
   <div id="content" class="product_view container_12">
 
@@ -31,8 +33,8 @@
                         else
                         {
                             <p class="s_description">@(Model.Description.Substring(0, 150))...</p>
-                        }
-                        </p>
+                        }   
+        </p>             
         <div id="product_share" class="clearfix">
           <!-- AddThis Button BEGIN -->
           <div class="addthis_toolbox addthis_default_style ">
@@ -120,35 +122,44 @@
               }
             </div>
             <div class="pagination"><div class="results">Showing 1 to 1 of 1 (1 Pages)</div></div>
+            <form method="post" id="create" class="clearfix" asp-action="Feed">
             <h2 class="s_title_1"><span class="s_main_color">Оставьте</span> отзыв</h2>
             <div id="review_title" class="clear"></div>
             <div class="s_row_2 clearfix">
               <label><strong>Достоинства</strong></label>
-              <textarea name="Advantages" style="width: 60%; resize: none;"  rows="8" placeholder="Что вам понравилось"></textarea>
+              <textarea name="Advantages" style="width: 60%; resize: none;" required  rows="8" placeholder="Что вам понравилось"></textarea>
             </div>
             <div class="s_row_2 clearfix">
               <label><strong>Недостатки</strong></label>
-              <textarea name="Disadvantages" style="width: 60%; resize: none;"  rows="8" placeholder="Что вам не понравилось"></textarea>
+              <textarea name="Disadvantages" style="width: 60%; resize: none;" required  rows="8" placeholder="Что вам не понравилось"></textarea>
             </div>
             <div class="s_row_2 clearfix">
               <label><strong>Комментарий</strong></label>
               <textarea name="Other" style="width: 60%; resize: none;"  rows="8" placeholder="Другие впечатления"></textarea>
               <p class="s_legend"><span style="color: #FF0000;">Note:</span> HTML is not translated!</p>
               <label><strong>Ваша оценка</strong></label>
-              <span class="clear"></span> <span>Bad</span>&nbsp;
-              <input type="radio" />
+              @*<span class="clear"></span> <span>Bad</span>&nbsp;*@
+              @*<input type="radio" value="1"/>
               &nbsp;
-              <input type="radio" />
+              <input type="radio" value="2"/>
               &nbsp;
-              <input type="radio" />
+              <input type="radio" value="3"/>
               &nbsp;
-              <input type="radio" />
+              <input type="radio" value="4"/>
               &nbsp;
-              <input type="radio" />
-              &nbsp; <span>Good</span>
+              <input type="radio" value="5"/>
+              &nbsp; <span>Good</span>*@
+              <select name="raten">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
             </div>
-            <span class="clear border_ddd"></span>
-            <a class="s_button_1 s_main_color_bgr"><span class="s_text">Continue</span></a> <span class="clear"></span> </div>
+            
+            <input type="submit" value="Отправить отзыв" class="s_button_1 s_main_color_bgr left"/>
+            </form>
         </div>
       </div>
       
